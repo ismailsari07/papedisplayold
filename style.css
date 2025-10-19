@@ -122,27 +122,27 @@ header > .text-\[256px\], .text-\[160px\], .text-\[140px\] { display: inline-blo
 .app{ min-height: 100vh; width: 100vw; display: flex; align-items: center; justify-content: center; background: var(--neutral-950); color: var(--neutral-50); }
 .container{ width: 100%; display: flex; flex-direction: column; padding: 1.5rem; }
 .header{ margin-bottom: 4rem; display:flex; flex-direction: column; align-items: center; gap: 0.75rem; }
-.time-large{ font-weight:700; color: var(--neutral-50); font-size: 256px; }
+.time-large{ font-weight:700; color: var(--neutral-50); font-size: 350px; }
 .date-line{ color: var(--neutral-400); font-size: 4.5rem; }
 
-.prayer-section{ display:flex; gap:1.25rem; justify-content: space-between; align-items: flex-start; }
+.prayer-section{ display:flex; gap:40px; justify-content: space-between; align-items: flex-start; }
 .prayer-card{ width: 48%; border-radius: 1.5rem; padding: .75rem; border: 1px solid var(--neutral-800); background: rgba(15,23,32,0.6); box-shadow: 0 10px 15px rgba(2,6,23,0.6); }
 .prayer-card--active{ border-color: rgba(52,211,153,0.7); background: rgba(16,185,129,0.1); }
 .card-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:1.75rem; }
-.prayer-title{ font-size: 120px; font-weight:700; color: var(--neutral-50); }
-.section-label{ font-size: 2.25rem; color: var(--neutral-300); }
-.time-big{ font-size: 80px; color: var(--neutral-300); display:inline-block; }
-.ampm-small{ font-size: 4.5rem; color: var(--neutral-400); margin-left: .5rem; }
+.prayer-title{ font-size: 180px; font-weight:700; color: var(--neutral-50); }
+.section-label{ font-size: 80px; color: var(--neutral-500); }
+.time-big{ font-size: 160px; color: var(--neutral-500); display:inline-block; }
+.ampm-small{ font-size: 4.5rem; color: var(--neutral-500); margin-left: .5rem; }
 .divider{ width:100%; height:.125rem; background: var(--neutral-500); border-radius:9999px; margin: .75rem 0; }
-.iqama-label{ font-size: 2.25rem; color: var(--neutral-50); font-weight:600; }
-.iqama-time{ font-size:160px; color: var(--neutral-50); display:inline-block; }
+.iqama-label{ font-size: 120px; color: var(--neutral-50); font-weight:600; }
+.iqama-time{ font-size:320px; color: var(--neutral-50); display:inline-block; }
 
 .info-card{ width:40%; padding:.5rem; display:flex; justify-content:center; align-items:center; gap:.25rem; border-radius:2rem; background: rgba(15,23,32,0.6); border:1px solid var(--neutral-800); box-shadow: 0 10px 15px rgba(2,6,23,0.6); margin-left:auto; margin-right:auto; }
-.info-title{ font-size:6rem; color: var(--neutral-50); font-weight:600; margin-bottom:.25rem; }
-.info-value{ font-weight:700; color: var(--neutral-300); font-size:6rem; line-height:1; }
+.info-title{ font-size:180px; color: var(--neutral-50); font-weight:600; margin-bottom:.25rem; }
+.info-value{ font-weight:700; color: var(--neutral-300); font-size:180px; line-height:1; }
 
-.site-footer{ display:flex; align-items:center; justify-content:space-between; padding-top:.5rem; border-top:1px solid var(--neutral-800); margin-top:1.5rem; }
-.footer-text{ color: var(--neutral-400); font-size: clamp(12px, 1.6vw, 18px); }
+.site-footer{ display:flex; align-items:center; justify-content:justify-center; padding-top:.5rem; border-top:1px solid var(--neutral-800); margin-top:1.5rem; }
+.footer-text{ color: var(--neutral-400); font-size: 60px; }
 
 @media (max-width: 900px){
   .time-large{ font-size: 120px; }
