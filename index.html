@@ -12,52 +12,52 @@
         <header >
           <div class="header">
             <div id="time" class="time-large"></div>
-            <div id="gregorian" class="date-line"></div>
-            <div id="hijri_latine" class="date-line"></div>
-            <div id="hijri" class="date-line"></div>
+            <div>
+              <div id="gregorian" class="date-line"></div>
+              <div id="hijri_latine" class="date-line"></div>
+              <div id="hijri" class="date-line"></div>
+            </div>
           </div>
           <div class="right-header-info">
 
-            <div class="info-card">
-              <div class="info-title">Jumuah:</div>
-              <div class="info-value">2:00<span class="ampm-small">p.m.</span></div>
-              <div class="accent-bar"></div>
+            <div style="font-size: 128px; font-weight: 600; font-style: italic;">
+              Indeed, performing prayers is a duty on the believers at the appointed times.  Nîsa/103
             </div>
-            <div class="info-card">
+            <!-- <div class="info-card">
               <div class="info-title">Sunrise:</div>
               <div class="info-value">7:28<span class="ampm-small">p.m.</span></div>
               <div class="accent-bar"></div>
-            </div>
+            </div> -->
           </div>
         </header>
 
         <section id="prayer-times" class="prayer-section">
-          <div class="prayer-card prayer-card--active">
-            <div class="card-header">
-              <div class="prayer-title">Fajr</div>
-            </div>
-            <div>
-              <div class="section-label">Adhan Time:</div>
-              <span class="time-big">05:12</span>
-              <span class="ampm-small">a.m.</span>
+            <div class="prayer-card">
+              <div class="card-header">
+                <div class="prayer-title">Fajr</div>
+              </div>
+              <div class="prayer-info">
+                <div class="section-label">Adhan Time:</div>
+                <span class="time-big">05:12</span>
+                <span class="ampm-small">a.m.</span>
 
-              <div class="divider"></div>
+                <div class="divider"></div>
 
-              <div class="iqama-label">Iqama:</div>
-              <span class="iqama-time">07:00</span>
-              <span class="ampm-small">a.m.</span>
-              <!-- <div class="divider"></div>
-              <div class="iqama-label">Sunrise:</div>
-              <span class="iqama-time">07:30</span>
-              <span class="ampm-small">a.m.</span> -->
+                <div class="iqama-label">Iqama:</div>
+                <span class="iqama-time">07:00</span>
+                <span class="ampm-small">a.m.</span>
+                <!-- <div class="divider"></div>
+                <div class="iqama-label">Sunrise:</div>
+                <span class="iqama-time">07:30</span>
+                <span class="ampm-small">a.m.</span> -->
+              </div>
             </div>
-          </div>
 
           <div class="prayer-card">
             <div class="card-header">
               <div class="prayer-title">Dhuhr</div>
             </div>
-            <div>
+            <div class="prayer-info">
               <div class="section-label">Adhan Time:</div>
               <span class="time-big">12:45</span>
               <span class="ampm-small">p.m</span>
@@ -70,11 +70,11 @@
             </div>
           </div>
 
-          <div class="prayer-card">
+          <div class="prayer-card prayer-card--active">
             <div class="card-header">
               <div class="prayer-title">Asr</div>
             </div>
-            <div>
+            <div class="prayer-info">
               <div class="section-label">Adhan Time:</div>
               <span class="time-big">4:41</span>
               <span class="ampm-small">p.m</span>
@@ -91,7 +91,7 @@
             <div class="card-header">
               <div class="prayer-title">Maghrib</div>
             </div>
-            <div>
+            <div class="prayer-info">
               <div class="section-label">Adhan Time:</div>
               <span class="time-big">6:11</span>
               <span class="ampm-small">p.m</span>
@@ -108,7 +108,7 @@
             <div class="card-header">
               <div class="prayer-title">Isha</div>
             </div>
-            <div>
+            <div class="prayer-info">
               <div class="section-label">Adhan Time:</div>
               <span class="time-big">7:29</span>
               <span class="ampm-small">p.m.</span>
@@ -119,6 +119,36 @@
               <span class="iqama-time">08:00</span>
               <span class="ampm-small">a.m.</span>
             </div>
+          </div>
+        </section>
+
+        <div style="margin-bottom: 90px;">
+
+            <div class="sunrise">
+                Sunrise: 
+                <span>7:30</span>
+              <span class="ampm-small" style="color: #10b981;">a.m.</span>
+            </div>
+        </div>
+
+        <section style="display: flex; justify-content: space-between;">
+
+            <div class="info-card">
+              <div class="info-title">Jumuah:</div>
+              <div class="info-value">2:00<span class="ampm-small">p.m.</span></div>
+              <div class="accent-bar"></div>
+            </div>
+
+          <div class="right-header-info " style="border-color: brown; background-color: rgba(165,42,42,0.2); width: 60%;">
+
+            <div style="font-size: 128px; font-weight: 600; font-style: italic;">
+              * Starting from tomorrow, Isha will begin at 8:00 p.m. *
+            </div>
+            <!-- <div class="info-card">
+              <div class="info-title">Sunrise:</div>
+              <div class="info-value">7:28<span class="ampm-small">p.m.</span></div>
+              <div class="accent-bar"></div>
+            </div> -->
           </div>
         </section>
 
@@ -200,6 +230,8 @@
 
       updateNow();
       setInterval(updateNow, 1000);
+
+      /* --- Yeni: Hava durumu çekme ve gösterme (Open-Meteo, API anahtarsız) --- */
     </script>
   </body>
 </html>
