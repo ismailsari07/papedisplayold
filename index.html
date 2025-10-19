@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pape Display</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div class="container">
+        <header class="header">
+          <div id="time" class="time-large"></div>
+          <div id="gregorian" class="date-line"></div>
+          <div id="hijri" class="date-line"></div>
+        </header>
+
+        <section id="prayer-times" class="prayer-section">
+          <div class="prayer-card">
+            <div class="card-header">
+              <div class="prayer-title">Fajr</div>
+            </div>
+            <div>
+              <div class="section-label">Adhan Time:</div>
+              <span class="time-big">05:12</span>
+              <span class="ampm-small">a.m.</span>
+
+              <div class="divider"></div>
+
+              <div class="iqama-label">Iqama:</div>
+              <span class="iqama-time">07:00</span>
+              <span class="ampm-small">a.m.</span>
+              <div class="divider"></div>
+              <div class="iqama-label">Sunrise:</div>
+              <span class="iqama-time">07:30</span>
+              <span class="ampm-small">a.m.</span>
+            </div>
+          </div>
+
+          <div class="prayer-card">
+            <div class="card-header">
+              <div class="prayer-title">Dhuhr</div>
+            </div>
+            <div>
+              <div class="section-label">Adhan Time:</div>
+              <span class="time-big">12:45</span>
+              <span class="ampm-small">p.m</span>
+
+              <div class="divider"></div>
+
+              <div class="iqama-label">Iqama:</div>
+              <span class="iqama-time">02:00</span>
+              <span class="ampm-small">a.m.</span>
+            </div>
+          </div>
+
+          <div class="prayer-card">
+            <div class="card-header">
+              <div class="prayer-title">Asr</div>
+            </div>
+            <div>
+              <div class="section-label">Adhan Time:</div>
+              <span class="time-big">4:41</span>
+              <span class="ampm-small">p.m</span>
+
+              <div class="divider"></div>
+
+              <div class="iqama-label">Iqama:</div>
+              <span class="iqama-time">05:00</span>
+              <span class="ampm-small">a.m.</span>
+            </div>
+          </div>
+
+          <div class="prayer-card">
+            <div class="card-header">
+              <div class="prayer-title">Maghrib</div>
+            </div>
+            <div>
+              <div class="section-label">Adhan Time:</div>
+              <span class="time-big">6:11</span>
+              <span class="ampm-small">p.m</span>
+
+              <div class="divider"></div>
+
+              <div class="iqama-label">Iqama:</div>
+              <span class="iqama-time">06:37</span>
+              <span class="ampm-small">a.m.</span>
+            </div>
+          </div>
+
+          <div class="prayer-card prayer-card--active">
+            <div class="card-header">
+              <div class="prayer-title">Isha</div>
+            </div>
+            <div>
+              <div class="section-label">Adhan Time:</div>
+              <span class="time-big">7:29</span>
+              <span class="ampm-small">p.m.</span>
+
+              <div class="divider"></div>
+
+              <div class="iqama-label">Iqama:</div>
+              <span class="iqama-time">08:05</span>
+              <span class="ampm-small">a.m.</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="jumaah-info" class="mt-6">
+          <div class="info-card">
+            <div class="info-title">Jumuah:</div>
+            <div class="info-value">&nbsp;2:00<span class="ampm-small">p.m.</span></div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <div class="footer-text">
+            Toronto, ON • 336 Pape Ave, Toronto, ON M4M 2W7
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <script>
+      // formatTime equivalent
+      function formatTime(date) {
+        return date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit', hour12: false });
+      }
+
+      function formatGregorian(date) {
+        return date.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      function formatHijri(date) {
+        try {
+          return new Intl.DateTimeFormat('ar-SA-u-ca-islamic', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(date);
+        } catch (e) {
+          return 'Hicri tarih desteklenmiyor';
+        }
+      }
+
+      function updateNow() {
+        const now = new Date();
+        const timeEl = document.getElementById('time');
+        if (timeEl) {
+          timeEl.innerHTML = formatTime(now) + '<span class="text-7xl text-neutral-400">p.m.</span>';
+        }
+        const greg = document.getElementById('gregorian');
+        if (greg) greg.textContent = formatGregorian(now);
+        const hijri = document.getElementById('hijri');
+        if (hijri) hijri.textContent = formatHijri(now);
+      }
+
+      updateNow();
+      setInterval(updateNow, 1000);
+    </script>
+  </body>
+</html>
