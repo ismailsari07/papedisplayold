@@ -1,35 +1,48 @@
 async function fetchAndRender() {
   try {
-    const response = await fetch("http://localhost:3000/api/prayer/today", { cache: "no-store" });
+    const response = await fetch(
+      "https://papedisplayold.vercel.app/api/prayer/today",
+      { cache: "no-store" },
+    );
     if (!response.ok) throw new Error(`Http error ${response.status}`);
     const data = await response.json();
 
     // put the data into the DOM
-    document.getElementById("fajr-adhan-time").textContent = data.dailyPrayerTimes[0].time;
-    document.getElementById("fajr-iqama-time").textContent = data.dailyPrayerTimes[0].iqamah;
-    document.getElementById("dhuhr-adhan-time").textContent = data.dailyPrayerTimes[2].time;
-    document.getElementById("dhuhr-iqama-time").textContent = data.dailyPrayerTimes[2].iqamah;
-    document.getElementById("asr-adhan-time").textContent = data.dailyPrayerTimes[3].time;
-    document.getElementById("asr-iqama-time").textContent = data.dailyPrayerTimes[3].iqamah;
-    document.getElementById("maghrib-adhan-time").textContent = data.dailyPrayerTimes[4].time;
-    document.getElementById("maghrib-iqama-time").textContent = data.dailyPrayerTimes[4].iqamah;
-    document.getElementById("isha-adhan-time").textContent = data.dailyPrayerTimes[5].time;
-    document.getElementById("isha-iqama-time").textContent = data.dailyPrayerTimes[5].iqamah;
-    document.getElementById("sunrise-time").textContent = data.dailyPrayerTimes[1].time;
+    document.getElementById("fajr-adhan-time").textContent =
+      data.dailyPrayerTimes[0].time;
+    document.getElementById("fajr-iqama-time").textContent =
+      data.dailyPrayerTimes[0].iqamah;
+    document.getElementById("dhuhr-adhan-time").textContent =
+      data.dailyPrayerTimes[2].time;
+    document.getElementById("dhuhr-iqama-time").textContent =
+      data.dailyPrayerTimes[2].iqamah;
+    document.getElementById("asr-adhan-time").textContent =
+      data.dailyPrayerTimes[3].time;
+    document.getElementById("asr-iqama-time").textContent =
+      data.dailyPrayerTimes[3].iqamah;
+    document.getElementById("maghrib-adhan-time").textContent =
+      data.dailyPrayerTimes[4].time;
+    document.getElementById("maghrib-iqama-time").textContent =
+      data.dailyPrayerTimes[4].iqamah;
+    document.getElementById("isha-adhan-time").textContent =
+      data.dailyPrayerTimes[5].time;
+    document.getElementById("isha-iqama-time").textContent =
+      data.dailyPrayerTimes[5].iqamah;
+    document.getElementById("sunrise-time").textContent =
+      data.dailyPrayerTimes[1].time;
     document.getElementById("jumuah-time").textContent = data.jumaahTime;
 
     const noticesBox = document.getElementById("notices");
-    noticesBox.style.display = 'none';
-    noticesBox.textContent = '';
-    noticesBox.innerHTML = '';  
+    noticesBox.style.display = "none";
+    noticesBox.textContent = "";
+    noticesBox.innerHTML = "";
 
     for (const notice of data.notices) {
-      const p = document.createElement('p');
+      const p = document.createElement("p");
       p.textContent = "* " + notice + " *";
       noticesBox.appendChild(p);
-      noticesBox.style.display = 'block';
+      noticesBox.style.display = "block";
     }
-
   } catch (error) {
     console.error("Error fetching error:", error);
   }
