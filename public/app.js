@@ -1,7 +1,7 @@
 async function fetchAndRender() {
   try {
-    const response = await fetch(
-      "http://papedisplayold.vercel.app/api/prayer/today",
+    const response = await fetch( 
+      "http://papedisplayold.vercel.app/api/prayer/today", //NOTE: update URL: http://localhost:3000/api/prayer/today
       { cache: "no-store" },
     );
     if (!response.ok) throw new Error(`Http error ${response.status}`);
@@ -43,6 +43,15 @@ async function fetchAndRender() {
       noticesBox.appendChild(p);
       noticesBox.style.display = "block";
     }
+
+    window.ActiveHighlighter.startActivePrayerTicker({
+      fajr: data.dailyPrayerTimes[0].time,
+      sunrise: data.dailyPrayerTimes[1].time,
+      dhuhr: data.dailyPrayerTimes[2].time,
+      asr: data.dailyPrayerTimes[3].time,
+      maghrib: data.dailyPrayerTimes[4].time,
+      isha: data.dailyPrayerTimes[5].time,
+    });
   } catch (error) {
     console.error("Error fetching error:", error);
   }

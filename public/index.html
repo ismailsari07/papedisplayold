@@ -26,7 +26,7 @@
         </header>
 
         <section id="prayer-times" class="prayer-section">
-          <div class="prayer-card">
+          <div id="card-fajr" class="prayer-card">
             <div class="card-header">
               <div class="prayer-title">Fajr</div>
             </div>
@@ -45,6 +45,7 @@
           </div>
 
           <div
+            id="card-dhuhr"
             class="prayer-card"
             style="background-color: rgb(40 49 58 / 60%)"
           >
@@ -64,7 +65,7 @@
             </div>
           </div>
 
-          <div class="prayer-card">
+          <div id="card-asr" class="prayer-card">
             <div class="card-header">
               <div class="prayer-title">Asr</div>
             </div>
@@ -82,6 +83,7 @@
           </div>
 
           <div
+            id="card-maghrib"
             class="prayer-card"
             style="background-color: rgb(40 49 58 / 60%)"
           >
@@ -101,7 +103,7 @@
             </div>
           </div>
 
-          <div class="prayer-card">
+          <div id="card-isha" class="prayer-card">
             <div class="card-header">
               <div class="prayer-title">Isha</div>
             </div>
@@ -160,6 +162,7 @@
     <script src="./time.js"></script>
     <script src="https://unpkg.com/progressbar.js/dist/progressbar.min.js"></script>
     <script src="loading-bar.js"></script>
+    <script src="./active-highlighter.js"></script>
     <script src="./app.js"></script>
   </body>
 </html>
