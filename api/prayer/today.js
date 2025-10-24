@@ -8,8 +8,8 @@ export default async function handler(req, res) {
     let query = await supabase
       .from("prayer_cache")
       .select("*")
-      .limit(1);
-
+      .limit(1)
+      .order("date", { ascending: false });
 
     const { data, error } = await query;
 
@@ -35,7 +35,7 @@ export default async function handler(req, res) {
       dailyPrayerTimes: row.payload.dailyPrayerTimes,
       jumaahTime: row.payload.jumaaPrayerTime,
       updatedAt: row.fetched_at, // ISO string
-      notices: row.payload?.notices || []
+      notices: row.payload?.notices || [],
     };
 
     res.statusCode = 200;
