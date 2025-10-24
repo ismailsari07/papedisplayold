@@ -366,7 +366,7 @@ header {
   width: 48%;
   border-radius: 1.5rem;
   padding: 0.5rem;
-  border: 1px solid var(--neutral-800);
+  border: 5px solid var(--neutral-700);
   background: rgba(15, 23, 32, 0.6);
   box-shadow: 0 10px 15px rgba(2, 6, 23, 0.6);
 }
@@ -385,8 +385,7 @@ header {
 }
 .prayer-title {
   font-size: 128px;
-  font-weight: 700;
-  color: var(--neutral-50);
+  color: var(--neutral-300);
 }
 .section-label {
   font-size: 70px;
@@ -417,8 +416,7 @@ header {
 }
 .iqama-label {
   font-size: 100px;
-  color: var(--neutral-50);
-  font-weight: 600;
+  color: var(--neutral-300);
 }
 .iqama-time {
   font-size: 220px;
@@ -468,4 +466,3 @@ header {
     font-size: 3rem;
   }
 }
-
