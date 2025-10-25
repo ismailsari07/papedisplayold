@@ -1,16 +1,16 @@
-var line = new ProgressBar.Line('#container', {
-  strokeWidth: 1,
-  easing: 'easeInOut',
-  color: '#2cc024ff',
-  trailColor: '#ffffffff',
-  trailWidth: 1,
-  svgStyle: {width: '100%', height: '100%', borderRadius: '32px'},
-  from: {color: '#228609'},
-  to: {color: '#991908'},
-  step: (state, bar) => {
-    bar.path.setAttribute('stroke', state.color);
-  }
-});
+// var line = new ProgressBar.Line('#container', {
+//   strokeWidth: 1,
+//   easing: 'easeInOut',
+//   color: '#2cc024ff',
+//   trailColor: '#ffffffff',
+//   trailWidth: 1,
+//   svgStyle: {width: '100%', height: '100%', borderRadius: '32px'},
+//   from: {color: '#228609'},
+//   to: {color: '#991908'},
+//   step: (state, bar) => {
+//     bar.path.setAttribute('stroke', state.color);
+//   }
+// });
 
 /**
  * Runs a timed progress for a given "HH:MM" duration on a ProgressBar.js instance.
@@ -23,7 +23,7 @@ var line = new ProgressBar.Line('#container', {
  * @returns {() => void} stop function
  */
 function startTimedProgress(bar, hhmm) {
-  const [hStr, mStr] = (hhmm || '').split(':');
+  const [hStr, mStr] = (hhmm || "").split(":");
   const h = Math.max(0, parseInt(hStr, 10) || 0);
   const m = Math.max(0, parseInt(mStr, 10) || 0);
   const totalSeconds = h * 3600 + m * 60;
@@ -41,13 +41,12 @@ function startTimedProgress(bar, hhmm) {
     const fraction = Math.min(1, elapsedSeconds / totalSeconds);
 
     // Smooth 1s step animation; use bar.set(fraction) if you prefer no animation
-    bar.animate(fraction, { duration: TICK_MS, easing: 'linear' });
+    bar.animate(fraction, { duration: TICK_MS, easing: "linear" });
 
     if (fraction >= 1) clearInterval(id);
   }, TICK_MS);
-  
+
   return () => clearInterval(id);
 }
 
-startTimedProgress(line, '00:01');
-
+startTimedProgress(line, "00:01");

@@ -1,7 +1,7 @@
 async function fetchAndRender() {
   try {
-    const response = await fetch( 
-      "https://papedisplayold.vercel.app/api/prayer/today", //NOTE: update URL: http://localhost:3000/api/prayer/today
+    const response = await fetch(
+      "http://localhost:3000/api/prayer/today", //NOTE: update URL: https://papedisplayold.vercel.app/api/prayer/today
       { cache: "no-store" },
     );
     if (!response.ok) throw new Error(`Http error ${response.status}`);
