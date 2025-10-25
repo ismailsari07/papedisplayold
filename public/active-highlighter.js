@@ -51,39 +51,16 @@
     return null;
   }
 
-  function setProgressBarForActive(times, activeKey) {
-    if (!activeKey) return;
-    const order = getOrderFromTimes(times);
-    const idx = order.findIndex((o) => o.key === activeKey);
-    if (idx === -1) return;
-
-    const start = order[idx].at;
-    const end = idx < order.length - 1 ? order[idx + 1].at : endOfDay();
-    const now = new Date();
-
-    const totalMs = end - start;
-    const elapsedMs = Math.max(0, Math.min(totalMs, now - start)); // clamp
-    const percent = totalMs > 0 ? (elapsedMs / totalMs) * 100 : 100;
-
-    const cardEl = document.getElementById(`card-${activeKey}`);
-    if (!cardEl) return;
-
-    const containerEl = cardEl.querySelector(".progress-container");
-    const barEl = cardEl.querySelector(".progress-bar");
-  }
-
   let activeTickerId = null;
   function startActivePrayerTicker(times) {
     const first = computeCurrentPrayerKey(times);
     setActivePrayerCard(first);
-    setProgressBarForActive(times, first);
 
     if (activeTickerId) clearInterval(activeTickerId);
 
     activeTickerId = setInterval(() => {
       const key = computeCurrentPrayerKey(times);
       setActivePrayerCard(key);
-      setProgressBarForActive(times, first);
     }, 30 * 1000);
   }
 

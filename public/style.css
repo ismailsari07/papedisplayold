@@ -380,12 +380,12 @@ header {
 .prayer-card .progress-container {
   display: none;
 }
-.prayer-card.active .divider {
+/*.prayer-card.active .divider {
   display: none;
 }
 .prayer-card.active .progress-container {
   display: block;
-}
+}*/
 .card-header {
   display: flex;
   align-items: center;
