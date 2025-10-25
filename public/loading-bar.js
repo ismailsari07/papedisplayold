@@ -49,4 +49,4 @@ function startTimedProgress(bar, hhmm) {
   return () => clearInterval(id);
 }
 
-startTimedProgress(line, "00:01");
+// startTimedProgress(line, "00:01");
