@@ -63,17 +63,33 @@ function formatHijriLatin(date) {
   }
 }
 
+function formatTimeParts(date) {
+  let h = date.getHours();
+  const m = String(date.getMinutes()).padStart(2, "0");
+  const ampm = h >= 12 ? "ÖS" : "ÖÖ";
+
+  h = h % 12;
+  h = h === 0 ? 12 : h;
+
+  return {
+    time: `${String(h).padStart(2, "0")}:${m}`,
+    ampm,
+  };
+}
 function updateNow() {
   const now = new Date();
   const timeEl = document.getElementById("time");
+
   if (timeEl) {
-    let hhmm = formatTime(now).substring(0, 5);
-    let ampm = formatTime(now).substring(6);
+    const { time, ampm } = formatTimeParts(now);
     timeEl.innerHTML =
-      hhmm + `<span class="text-7xl text-neutral-400">${ampm.toLowerCase()}</span>`;
+      time +
+      `<span class="text-7xl text-neutral-400">${ampm.toLowerCase()}</span>`;
   }
+
   const greg = document.getElementById("gregorian");
   if (greg) greg.textContent = formatGregorian(now);
+
   const hijriLatin = document.getElementById("hijri_latine");
   if (hijriLatin) hijriLatin.textContent = formatHijriLatin(now);
 }
