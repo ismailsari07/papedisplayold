@@ -66,7 +66,7 @@ function formatHijriLatin(date) {
 function formatTimeParts(date) {
   let h = date.getHours();
   const m = String(date.getMinutes()).padStart(2, "0");
-  const ampm = h >= 12 ? "ÖS" : "ÖÖ";
+  const ampm = h >= 12 ? "p.m" : "a.m";
 
   h = h % 12;
   h = h === 0 ? 12 : h;
