@@ -27,7 +27,7 @@ async function fetchAndRender() {
     document.getElementById("isha-adhan-time").textContent =
       data.dailyPrayerTimes[5].time;
     document.getElementById("isha-iqama-time").textContent =
-      /*data.dailyPrayerTimes[5].iqamah*/ "7:45";
+      /*data.dailyPrayerTimes[5].iqamah*/ "9:45";
     document.getElementById("sunrise-time").textContent =
       data.dailyPrayerTimes[1].time;
     document.getElementById("jumuah-time").textContent = data.jumaahTime;
