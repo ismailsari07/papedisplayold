@@ -8,28 +8,17 @@ async function fetchAndRender() {
     const data = await response.json();
 
     // put the data into the DOM
-    document.getElementById("fajr-adhan-time").textContent =
-      data.dailyPrayerTimes[0].time;
-    document.getElementById("fajr-iqama-time").textContent =
-      data.dailyPrayerTimes[0].iqamah;
-    document.getElementById("dhuhr-adhan-time").textContent =
-      data.dailyPrayerTimes[2].time;
-    document.getElementById("dhuhr-iqama-time").textContent =
-      data.dailyPrayerTimes[2].iqamah;
-    document.getElementById("asr-adhan-time").textContent =
-      data.dailyPrayerTimes[3].time;
-    document.getElementById("asr-iqama-time").textContent =
-      data.dailyPrayerTimes[3].iqamah;
-    document.getElementById("maghrib-adhan-time").textContent =
-      data.dailyPrayerTimes[4].time;
-    document.getElementById("maghrib-iqama-time").textContent =
-      data.dailyPrayerTimes[4].iqamah;
-    document.getElementById("isha-adhan-time").textContent =
-      data.dailyPrayerTimes[5].time;
-    document.getElementById("isha-iqama-time").textContent =
-      /*data.dailyPrayerTimes[5].iqamah*/ "9:00";
-    document.getElementById("sunrise-time").textContent =
-      data.dailyPrayerTimes[1].time;
+    document.getElementById("fajr-adhan-time").textContent = data.dailyPrayerTimes[0].time;
+    document.getElementById("fajr-iqama-time").textContent = data.dailyPrayerTimes[0].iqamah;
+    document.getElementById("dhuhr-adhan-time").textContent = data.dailyPrayerTimes[2].time;
+    document.getElementById("dhuhr-iqama-time").textContent = data.dailyPrayerTimes[2].iqamah;
+    document.getElementById("asr-adhan-time").textContent = data.dailyPrayerTimes[3].time;
+    document.getElementById("asr-iqama-time").textContent = data.dailyPrayerTimes[3].iqamah;
+    document.getElementById("maghrib-adhan-time").textContent = data.dailyPrayerTimes[4].time;
+    document.getElementById("maghrib-iqama-time").textContent = data.dailyPrayerTimes[4].iqamah;
+    document.getElementById("isha-adhan-time").textContent = data.dailyPrayerTimes[5].time;
+    document.getElementById("isha-iqama-time").textContent = /*data.dailyPrayerTimes[5].iqamah*/ "9:00";
+    document.getElementById("sunrise-time").textContent = data.dailyPrayerTimes[1].time;
     document.getElementById("jumuah-time").textContent = data.jumaahTime;
 
     const noticesBox = document.getElementById("notices");
@@ -68,7 +57,7 @@ function getDelayToNext(hour, minute) {
 }
 
 function scheduleNextRefresh() {
-  const delay = getDelayToNext(3, 5); // 3:05 AM
+  const delay = getDelayToNext(5, 5); // 5:05 AM
   const hours = Math.floor(delay / (1000 * 60 * 60));
   const minutes = Math.floor((delay % (1000 * 60 * 60)) / (1000 * 60));
 
