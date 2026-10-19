@@ -5,11 +5,17 @@ export default async function handler(req, res) {
   try {
     // Opsiyonel: şehir veya tarih parametreleri
 
-    let query = await supabase
-      .from("prayer_cache")
-      .select("*")
-      .limit(1)
-      .order("date", { ascending: false });
+    // Bugünün tarihi, Toronto saatine göre (YYYY-MM-DD)
+const today = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "America/Toronto",
+  year: "numeric", month: "2-digit", day: "2-digit",
+}).format(new Date());
+
+let query = await supabase
+  .from("prayer_cache")
+  .select("*")
+  .eq("date", today)
+  .limit(1);
 
     const { data, error } = await query;
 
